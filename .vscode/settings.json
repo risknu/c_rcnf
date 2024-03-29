@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "system_error": "c",
-        "xlocale": "c"
+        "xlocale": "c",
+        "string.h": "c",
+        "env.h": "c"
     }
 }

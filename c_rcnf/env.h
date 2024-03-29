@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define TRUE 1
-#define FASLE 0
+#define FALSE 0
 
 #ifdef _WIN32
     #include <Windows.h>
