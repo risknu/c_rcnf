@@ -20,8 +20,6 @@ print(set_env("VAR_NAME", "VAR_VALUE")) # add
 
 **C**
 ```c
-#include <rcnf.h>
-#include <stdio.h>
 int main() {
     printf("%s\n", get_env("VAR_NAME")); // get (returns char*)
     printf("%s\n", unset_env("VAR_NAME")); // remove (returns int)
@@ -41,8 +39,6 @@ print(read_file("<file_path>")) # read file
 
 **C**
 ```c
-#include <rcnf.h>
-#include <stdio.h>
 int main() {
     map_array get_from_string = extract_from("NAME=ABC\n"); // extract from string
     map_array get_from_file = extract_from_file("<file_path>"); // extract from file

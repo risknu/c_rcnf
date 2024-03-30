@@ -96,7 +96,9 @@ def map_to(map_array_struct: map_array = None) -> dict | None:
         return
     to_dictionary: dict = {}
     for i in range(map_array_struct.count):
-        key: str = map_array_struct.keys[i].decode('utf-8').replace('\n', '')
+        key: str = map_array_struct.keys[i].decode('utf-8')
+        if key[0] == "\n":
+            key: str = key[1:]
         value: str = map_array_struct.values[i].decode('utf-8')
         to_dictionary[key] = value
     return to_dictionary
