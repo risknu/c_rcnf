@@ -96,13 +96,12 @@ static token* get_next_token(char** file_cstring) {
             (*file_cstring)++;
             return create_token(equal, "=");
         case '\n':
-        case ';':
             (*file_cstring)++;
             return create_token(endl, ";");
         default:
             {
                 char* end = *file_cstring;
-                while (*end && *end != '\n' && *end != '=' && *end != ';' && !isspace(*end)) {
+                while (*end && *end != '\n' && *end != '=' && !isspace(*end)) {
                     end++;
                 }
                 char* token_value = (char*)malloc(end - start + 1);
