@@ -19,7 +19,7 @@ class map_array(ctypes.Structure):
     count: int
 
 
-lib_shared: ctypes.CDLL = ctypes.CDLL("./shared/simple.dll")
+lib_shared: ctypes.CDLL = ctypes.CDLL("./shared/dll/librcnf_shared.dll")
 
 lib_shared.dll_get_env.argtypes = [ctypes.c_char_p]
 lib_shared.dll_get_env.restype = ctypes.c_char_p
