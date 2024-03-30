@@ -5,6 +5,8 @@
 #include <ctype.h>
 #include <string.h>
 
+#include "env.h"
+
 #define MAX_MAP_SIZE 124
 #define MAX_BUFFER_SIZE 124
 #define MAX_TOKENS_LENGTH (MAX_MAP_SIZE * 3u)
@@ -40,6 +42,7 @@ static void append_token(tokens_array* array, token t);
 static void append_map(map_array* array, char* key, char* val);
 
 char* read_file(const char* file_path);
+void process_to_env(char* file_path);
 map_array extract_from_file(char* file_path);
 map_array extract_from(char* file_cstring);
 static map_array extract_from_tokens(tokens_array array);

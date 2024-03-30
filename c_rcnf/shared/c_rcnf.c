@@ -14,6 +14,10 @@ char* dll_get_env(const char* key_string) {
     return set_env(key_string, value_string);
 }
 
+void dll_process_to_env(char* file_path) {
+    process_to_env(file_path);
+}
+
 map_array dll_extract_from(char* file_cstring) {
     return extract_from(file_cstring);
 }

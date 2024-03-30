@@ -36,6 +36,9 @@ lib_shared.dll_extract_from.restype = map_array
 lib_shared.dll_read_file.argtypes = [ctypes.c_char_p]
 lib_shared.dll_read_file.restype = ctypes.c_char_p
 
+lib_shared.dll_process_to_env.argtypes = [ctypes.c_char_p]
+lib_shared.dll_process_to_env.restype = None
+
 lib_shared.dll_extract_from_file.argtypes = [ctypes.c_char_p]
 lib_shared.dll_extract_from_file.restype = map_array
 
@@ -97,8 +100,15 @@ def map_to(map_array_struct: map_array = None) -> dict | None:
     to_dictionary: dict = {}
     for i in range(map_array_struct.count):
         key: str = map_array_struct.keys[i].decode('utf-8')
-        if key[0] == "\n":
+        if key[0] == "\n": 
             key: str = key[1:]
         value: str = map_array_struct.values[i].decode('utf-8')
         to_dictionary[key] = value
     return to_dictionary
+
+def process_to_env(file_path: Union[PathLike, bytes, str] = None) -> None:
+    if file_path is None:
+        return
+    if isinstance(file_path, str):
+        file_path: bytes = file_path.encode()
+    lib_shared.dll_process_to_env(file_path)
