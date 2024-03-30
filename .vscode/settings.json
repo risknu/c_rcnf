@@ -4,6 +4,7 @@
         "xlocale": "c",
         "string.h": "c",
         "env.h": "c",
-        "ext.h": "c"
+        "ext.h": "c",
+        "stdio.h": "c"
     }
 }

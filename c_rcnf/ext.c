@@ -33,7 +33,35 @@ static void free_token(token* token) {
     }
 }
 
-map_array extract_from(char* file_cstring) {
+char* read_file(const char* file_path) {
+    FILE* file_pointer = fopen(file_path, "r");
+    if (file_pointer == NULL) {
+        fprintf(stderr, "Error opening file: %s\n", file_path);
+        return NULL;
+    }
+
+    size_t full_str_size = MAX_BUFFER_SIZE;
+    char* full_str = (char*)malloc(full_str_size * sizeof(char));
+    if (full_str == NULL) {
+        fclose(file_pointer);
+        fprintf(stderr, "Memory allocation error.\n");
+        return NULL;
+    }
+    
+    full_str[0] = '\0';
+
+    char buffer[MAX_BUFFER_SIZE];
+    while (fgets(buffer, sizeof(buffer), file_pointer) != NULL) {
+        strcat(full_str, buffer);
+    }
+    
+    fclose(file_pointer);
+    return full_str;
+}
+
+map_array extract_from_file(char* file_path) {
+    return extract_from(read_file(file_path));
+} map_array extract_from(char* file_cstring) {
     map_array map_values_array;
     map_values_array.count = 0u;
 

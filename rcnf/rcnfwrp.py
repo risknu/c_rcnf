@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ctypes
+from os import path, PathLike
 from typing import Union, Optional, Any
 from dataclasses import dataclass
 
@@ -31,6 +32,12 @@ lib_shared.dll_set_env.restype = ctypes.c_int
 
 lib_shared.dll_extract_from.argtypes = [ctypes.c_char_p]
 lib_shared.dll_extract_from.restype = map_array
+
+lib_shared.dll_read_file.argtypes = [ctypes.c_char_p]
+lib_shared.dll_read_file.restype = ctypes.c_char_p
+
+lib_shared.dll_extract_from_file.argtypes = [ctypes.c_char_p]
+lib_shared.dll_extract_from_file.restype = map_array
 
 
 def get_env(key_string: Union[str, bytes] = None, ret_bytes: bool = False) -> Union[bytes, str] | None:
@@ -66,6 +73,22 @@ def extract_from(file_cstring: Union[bytes, str] = None) -> map_array | None:
     if isinstance(file_cstring, str):
         file_cstring: bytes = file_cstring.encode()
     return lib_shared.dll_extract_from(file_cstring)
+
+def extract_from_file(file_path: Union[PathLike, str, bytes] = None) -> map_array | None:
+    if file_path is None:
+        return
+    if isinstance(file_path, str):
+        file_path: bytes = file_path.encode()
+    return lib_shared.dll_extract_from_file(file_path)
+
+
+def read_file(file_path: Union[PathLike, bytes, str] = None, ret_bytes: bool = False) -> Union[bytes, str] | None:
+    if file_path is None:
+        return
+    if isinstance(file_path, str):
+        file_path: bytes = file_path.encode()
+    to_return: bytes = lib_shared.dll_read_file(file_path) 
+    return to_return if ret_bytes else to_return.decode() if not to_return is None else None
 
 
 def map_to(map_array_struct: map_array = None) -> dict | None:

@@ -11,6 +11,9 @@
 #include "../env.h"
 #include "../ext.h"
 
+__declspec(dllexport) char* dll_read_file(const char* file_path);
+__declspec(dllexport) map_array dll_extract_from_file(char* file_path);
+
 __declspec(dllexport) char* dll_get_env(const char* key_string);
 __declspec(dllexport) int dll_unset_env(const char* key_string);
 __declspec(dllexport) int dll_set_env(const char* key_string, const char* value_string);
