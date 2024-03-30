@@ -1,3 +1,3 @@
 from .rcnfwrp import (map_array, MAX_MAP_SIZE,
                       get_env, set_env, unset_env, extract_from,
-                      map_to)
+                      map_to, read_file, extract_from_file)
