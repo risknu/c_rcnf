@@ -8,8 +8,8 @@
 
 #include <stdio.h>
 
-#include "../env.h"
-#include "../ext.h"
+#include <env.h>
+#include <ext.h>
 
 __declspec(dllexport) char* dll_read_file(const char* file_path);
 __declspec(dllexport) map_array dll_extract_from_file(char* file_path);

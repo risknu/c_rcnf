@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "c_rcnf/ext.h"
+#include "include/ext.h"
 //gcc -o main main.c -L./build -lmathlib
 int main() {
     // map_array array_of = extract_from("NAME=HAHA\nABC=TEST\n");

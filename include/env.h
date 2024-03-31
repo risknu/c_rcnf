@@ -8,7 +8,7 @@
 #define FALSE 0
 
 #ifdef _WIN32
-    #include <Windows.h>
+    #include <windows.h>
     #define STRDUP _strdup
 #else
     #include <unistd.h>

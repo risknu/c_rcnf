@@ -1,4 +1,4 @@
-#include "c_rcnf.h"
+#include <shared/c_rcnf.h>
 
 char* dll_read_file(const char* file_path) {
     return read_file(file_path);
