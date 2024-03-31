@@ -12,6 +12,6 @@
 #define MAX_BUFFER_SIZE 124
 
 char* read_file(const char* file_path);
-void process_to_env(char* file_path);
-map_array extract_from_file(char* file_path);
+void process_to_env(const char* file_path);
+map_array extract_from_file(const char* file_path);
 map_array extract_from(char* file_cstring);

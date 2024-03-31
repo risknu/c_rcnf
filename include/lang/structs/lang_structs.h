@@ -9,7 +9,7 @@
 
 typedef enum {
     untitled, string, equal,
-    endp, endl, err
+    endp, endl, err, comment
 } types_of;
 
 typedef struct {
@@ -19,8 +19,8 @@ typedef struct {
 } map_array;
 
 typedef struct {
-    types_of type_of_token; 
-    char* token_value;
+    types_of type;
+    char* value;
 } token;
 
 typedef struct {

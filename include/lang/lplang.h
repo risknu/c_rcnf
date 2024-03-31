@@ -8,3 +8,4 @@ static token* get_next_token(char** file_cstring);
 
 static token* process_untitled(char* start, char** file_cstring);
 static token* process_string(char** file_cstring);
+static token* process_comment(char* start, char** file_cstring);

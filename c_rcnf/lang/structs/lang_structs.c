@@ -3,8 +3,8 @@
 token* create_token(types_of token_type, const char* token_value) {
     token* token_inst = (token*)malloc(sizeof(token));
     if (token_inst) {
-        token_inst->type_of_token = token_type;
-        token_inst->token_value = strdup(token_value);
+        token_inst->type = token_type;
+        token_inst->value = strdup(token_value);
     }
     return token_inst;
 }
@@ -25,7 +25,7 @@ void append_map(map_array* array, char* key, char* val) {
 
 void free_token(token* token) {
     if (token) {
-        free(token->token_value);
+        free(token->value);
         free(token);
     }
 }

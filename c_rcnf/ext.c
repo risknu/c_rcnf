@@ -25,14 +25,18 @@ char* read_file(const char* file_path) {
     return full_str;
 }
 
-map_array extract_from_file(char* file_path) {
+map_array extract_from_file(const char* file_path) {
     return extract_from(read_file(file_path));
-} void process_to_env(char* file_path) {
+}
+
+void process_to_env(const char* file_path) {
     map_array file_array = extract_from_file(file_path);
     for (unsigned int ite; ite < file_array.count; ite++) {
         set_env(file_array.keys[ite], file_array.values[ite]);
     }
-} map_array extract_from(char* file_cstring) {
+}
+
+map_array extract_from(char* file_cstring) {
     map_array map_values_array;
     map_values_array.count = 0u;
 
