@@ -187,5 +187,4 @@ def process_to_env(file_path: Union[PathLike, bytes, str] = None) -> NoReturn:
     if isinstance(file_path, str):
         file_path: bytes = file_path.encode()
     lib_shared.dll_process_to_env(file_path)
-
-print(map_to(extract_from_file("C:\\Users\\risknumak\\Desktop\\rcnfdll\\.env"))['HELLO'])
+    
